@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<module name="HelloWorld" version="${project.version}" build-number="${build.number}" image="images/default-16x16.png" display-name="HelloWorld">
+    <description>Hello World plug-in for vRealize Orchestrator</description>
+    <installation mode="version">
+        <action resource="packages/${project.artifactId}-package-${project.version}.package" type="install-package"/>
+    </installation>
+    <inventory type="ROOT_NODE"/>
+    <finder-datasources>
+        <finder-datasource name="main-datasource" adaptor-class="com.demo.helloworld.HelloWorldPluginAdaptor" concurrent-call="false" anonymous-login-mode="internal"/>
+    </finder-datasources>
+    <finders>
+        <finder type="ROOT_NODE" datasource="main-datasource" hidden="true">
+            <inventory-children>
+                <relation-link name="Nodes"/>
+            </inventory-children>
+            <relations>
+                <relation name="Nodes" type="employee"/>
+            </relations>
+        </finder>
+        <finder type="employee" dynamic-finder="false" dynamic-types="false" datasource="main-datasource" hidden="false" image="images/item-16x16.png" java-class="com.demo.helloworld.vo.Employee" script-object="employee">
+            <id accessor="getId()"/>
+            <description></description>
+            <properties>
+                <property name="id" display-name="Entity Id" bean-property="id" show-in-column="true" show-in-description="true" hidden="false">Unique identifier of this node</property>
+                <property name="name" display-name="Entity Name" bean-property="name" show-in-column="true" show-in-description="true" hidden="false">Entity name</property>
+                <property name="age" display-name="Entity Age" bean-property="age" show-in-column="true" show-in-description="true" hidden="false">Entity Age</property>
+                <property name="status" display-name="Entity Status" bean-property="status" show-in-column="true" show-in-description="true" hidden="false">Entity Status</property>
+            </properties>
+            <relations/>
+            <inventory-tabs/>
+            <events/>
+        </finder>
+    </finders>
+    <scripting-objects>
+        <object script-name="_HelloworldGreeter" java-class="com.demo.helloworld.service.HelloWorldGreeter" strict="false" is-deprecated="false">
+            <description></description>
+            <methods>
+                <method script-name="greet" java-name="greet" return-type="String" show-in-api="true" is-deprecated="false">
+                    <description></description>
+                    <parameters>
+                        <parameter type="String" name="name"/>
+                    </parameters>
+                </method>
+            </methods>
+            <singleton script-name="HelloworldGreeter" datasource="main-datasource"/>
+        </object>
+        <object script-name="_HelloworldManager" java-class="com.demo.helloworld.mgr.HelloWorldManagerImpl" strict="true" is-deprecated="false">
+            <description>Provides CRUD operations for Employee objects.</description>
+            <methods>
+                <method script-name="removeEmployee" java-name="removeEmployee" return-type="void" show-in-api="true" is-deprecated="false">
+                    <description></description>
+                    <parameters>
+                        <parameter type="String" name="id"/>
+                    </parameters>
+                </method>
+                <method script-name="addEmployee" java-name="addEmployee" return-type="void" show-in-api="true" is-deprecated="false">
+                    <description></description>
+                    <parameters>
+                        <parameter type="employee" name="item"/>
+                    </parameters>
+                </method>
+                <method script-name="getEmployee" java-name="getEmployee" return-type="ch.dunes.vso.sdk.endpoints.IEndpointConfiguration" show-in-api="true" is-deprecated="false">
+                    <description></description>
+                    <parameters>
+                        <parameter type="String" name="id"/>
+                    </parameters>
+                </method>
+                <method script-name="getAllEmployees" java-name="getAllEmployees" return-type="[ch.dunes.vso.sdk.endpoints.IEndpointConfiguration" show-in-api="true" is-deprecated="false">
+                    <description></description>
+                </method>
+            </methods>
+            <singleton script-name="HelloworldManager" datasource="main-datasource"/>
+        </object>
+        <object script-name="employee" java-class="com.demo.helloworld.vo.Employee" strict="true" is-deprecated="false">
+            <description>Employee POJO Objects</description>
+            <constructors/>
+            <attributes>
+                <attribute script-name="id" java-name="id" return-type="String" read-only="true" show-in-api="true">Unique identifier of this node</attribute>
+                <attribute script-name="name" java-name="name" return-type="String" read-only="false" show-in-api="true">Entity name</attribute>
+                <attribute script-name="age" java-name="age" return-type="Integer" read-only="false" show-in-api="true">Entity Age</attribute>
+                <attribute script-name="status" java-name="status" return-type="Boolean" read-only="false" show-in-api="true">Entity Status</attribute>
+            </attributes>
+        </object>
+    </scripting-objects>
+</module>

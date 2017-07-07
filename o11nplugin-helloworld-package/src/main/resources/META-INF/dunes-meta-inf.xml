@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>10.112.187.155:8281</comment>
+<entry key="vso-build-nb">4920503</entry>
+<entry key="pkg-description"></entry>
+<entry key="pkg-name">com.demo.helloworld</entry>
+<entry key="used-plugins"></entry>
+<entry key="pkg-owner">O=VMware,OU=Unknown,CN=vRO blr-1st-1-dhcp665.eng.vmware.com 5e69c13e-6b5d-45c5-8fab-be81ce0802eb</entry>
+<entry key="vso-version">7.3.0.4920503</entry>
+<entry key="pkg-id">8af03b1b5d1cf0a8015d1cf7fc90001d</entry>
+</properties>
