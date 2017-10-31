@@ -5,7 +5,11 @@ Has a greeter service and an inventory of employees.
 
 # To create the plugin
 https://code.vmware.com/forums/3055/vrealize-orchestrator#573085
-If the following doesnt work and throws the error:  Failed to execute goal org.apache.maven.plugins:maven-archetype-plugin:3.0.1:generate (default-cli) on project standalone-pom: archetypeCatalog 'https://HOST:8281/vco-repo/archetype-catalog.xml' is not supported anymore. Please read the plugin documentation for details
+
+If the following doesnt work and throws the error:  
+
+Failed to execute goal org.apache.maven.plugins:maven-archetype-plugin:3.0.1:generate (default-cli) on project standalone-pom: archetypeCatalog 'https://HOST:8281/vco-repo/archetype-catalog.xml' is not supported anymore. Please read the plugin documentation for details
+
 Change
 mvn archetype:generate <parameters> 
 To
