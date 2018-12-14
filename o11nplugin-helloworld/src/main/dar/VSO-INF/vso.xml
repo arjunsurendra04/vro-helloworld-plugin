@@ -47,19 +47,13 @@
         <object script-name="_HelloworldManager" java-class="com.demo.helloworld.mgr.HelloWorldManagerImpl" strict="true" is-deprecated="false">
             <description>Provides CRUD operations for Employee objects.</description>
             <methods>
-                <method script-name="removeEmployee" java-name="removeEmployee" return-type="void" show-in-api="true" is-deprecated="false">
-                    <description></description>
-                    <parameters>
-                        <parameter type="String" name="id"/>
-                    </parameters>
-                </method>
                 <method script-name="addEmployee" java-name="addEmployee" return-type="void" show-in-api="true" is-deprecated="false">
                     <description></description>
                     <parameters>
                         <parameter type="employee" name="item"/>
                     </parameters>
                 </method>
-                <method script-name="getEmployee" java-name="getEmployee" return-type="ch.dunes.vso.sdk.endpoints.IEndpointConfiguration" show-in-api="true" is-deprecated="false">
+                <method script-name="removeEmployee" java-name="removeEmployee" return-type="void" show-in-api="true" is-deprecated="false">
                     <description></description>
                     <parameters>
                         <parameter type="String" name="id"/>
@@ -67,6 +61,12 @@
                 </method>
                 <method script-name="getAllEmployees" java-name="getAllEmployees" return-type="[ch.dunes.vso.sdk.endpoints.IEndpointConfiguration" show-in-api="true" is-deprecated="false">
                     <description></description>
+                </method>
+                <method script-name="getEmployee" java-name="getEmployee" return-type="ch.dunes.vso.sdk.endpoints.IEndpointConfiguration" show-in-api="true" is-deprecated="false">
+                    <description></description>
+                    <parameters>
+                        <parameter type="String" name="id"/>
+                    </parameters>
                 </method>
             </methods>
             <singleton script-name="HelloworldManager" datasource="main-datasource"/>

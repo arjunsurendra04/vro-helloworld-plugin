@@ -1,0 +1,12 @@
+.settings/
+.idea/
+*.iml
+target/
+.project
+.classpath
+build/
+vso.xml
+*.vmoapp
+history/
+test-output/
+.gitreview
