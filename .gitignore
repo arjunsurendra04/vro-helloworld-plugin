@@ -10,3 +10,5 @@ vso.xml
 history/
 test-output/
 .gitreview
+
+o11nplugin-helloworld-core/\.factorypath
